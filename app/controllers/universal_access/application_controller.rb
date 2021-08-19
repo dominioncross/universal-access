@@ -1,6 +1,6 @@
 module UniversalAccess
   class ApplicationController < ::ApplicationController
-    helper Universal::Engine::ApplicationHelper
+    helper Universal::ApplicationHelper
     
     before_filter :enforce_user_access
     
