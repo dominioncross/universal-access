@@ -36,7 +36,7 @@ module UniversalAccess
         
         private
         def update_relations
-          self.code = self.name.parameterize('_') if self.code.blank? and !self.name.blank?
+          self.code = self.name.parameterize.underscore if self.code.blank? and !self.name.blank?
         end
         
       end
