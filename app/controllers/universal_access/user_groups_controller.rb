@@ -3,7 +3,7 @@ require_dependency "universal_access/application_controller"
 module UniversalAccess
   class UserGroupsController < ApplicationController
 
-    before_filter :find_group, only: [:users, :add_user, :remove_user, :edit, :update, :invite_user, :show, :destroy]
+    before_action :find_group, only: [:users, :add_user, :remove_user, :edit, :update, :invite_user, :show, :destroy]
 
     def index
       @user_groups = find_user_groups
