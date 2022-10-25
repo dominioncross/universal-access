@@ -14,7 +14,7 @@ module UniversalAccess
         field :name
         field :notes
         field :functions, type: Hash, default: {}
-        field :locked, type: Boolean, default: false
+        field :locked, type: Mongoid::Boolean, default: false
 
         before_validation :update_relations
 
