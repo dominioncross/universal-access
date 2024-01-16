@@ -15,7 +15,7 @@
             = user.name
           %td
             = user.email
-          %td.text-center= link_to icon('trash-o'), universal_access.remove_user_user_group_path(@user_group, user_id: user.id), remote: true, method: :delete, data: {confirm: 'Are you sure you want to remove this user from this group?'}
+          %td.text-center= link_to ficon('trash-o'), universal_access.remove_user_user_group_path(@user_group, user_id: user.id), remote: true, method: :delete, data: {confirm: 'Are you sure you want to remove this user from this group?'}
     
   .hidden
     %hr{style: 'margin-bottom:40px;'}

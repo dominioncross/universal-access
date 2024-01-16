@@ -3,14 +3,14 @@ require_dependency "universal_access/application_controller"
 module UniversalAccess
   class UserGroupsController < ApplicationController
 
-    before_action :find_group, only: [:users, :add_user, :remove_user, :edit, :update, :invite_user, :show, :destroy]
+    before_action :find_group, only: [:users, :add_user, :remove_user, :edit, :update, :show, :destroy]
 
     def index
       @user_groups = find_user_groups
     end
 
     def create
-      @user_group = ::UniversalAccess::UserGroup.new(user_group_params)
+      @user_group = ::Universal::UserGroup.new(user_group_params)
       @user_group.scope = universal_scope
       @user_group.functions = params[:functions]
       if @user_group.save
@@ -41,21 +41,6 @@ module UniversalAccess
       render layout: false
     end
 
-#     def invite_user
-#       #create the user account from this email, then send them a welcome email
-#       password = String.random(8).upcase
-#       @user = Universal::Configuration.class_name_user.classify.constantize.new email: params[:invite_email], password: password, password_confirmation: password
-#       if @user.save
-#         logger.warn "User created with password: #{password}"
-#         @user.set_user_group!(@user_group, true)
-#         #send the email:
-#         UserMailer.new_user_invite(current_territory, @user, password, @user_group).deliver_now
-#         @users = @user_group.users
-#       else
-#       end
-#       xhr?
-#     end
-
     def edit
       #load the functions
       @functions = YAML.load(File.read("#{Rails.root}/config/universal_access_functions.yml")).symbolize_keys
@@ -84,11 +69,11 @@ module UniversalAccess
     end
 
     def find_group
-      @user_group = ::UniversalAccess::UserGroup.find(params[:id])
+      @user_group = ::Universal::UserGroup.find(params[:id])
     end
     
     def find_user_groups
-      g = ::UniversalAccess::UserGroup.all
+      g = ::Universal::UserGroup.all
       g = g.scoped_to(universal_scope) if !universal_scope.nil?
       return g
     end
