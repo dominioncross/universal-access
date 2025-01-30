@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'universal-access/engine'
+
 module UniversalAccess
-  VERSION = '1.0.0'
 end
