@@ -20,8 +20,7 @@ require 'carrierwave'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-require 'universal'
-require 'universal_access'
+require 'universal-access'
 
 module Dummy
   class Application < Rails::Application
