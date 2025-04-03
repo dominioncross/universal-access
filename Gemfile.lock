@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    universal-access (1.0.0)
+    universal-access (1.1.1)
       haml
       mongoid
       rails (>= 6.1.7.10, < 7.1)

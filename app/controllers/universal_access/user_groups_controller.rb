@@ -47,6 +47,7 @@ module UniversalAccess
 
     def update
       @user_group.functions = params[:functions].to_unsafe_h
+      @user_group.save
       redirect_to universal_access.user_groups_path
     end
 
